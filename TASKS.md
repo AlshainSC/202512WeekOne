@@ -1,13 +1,14 @@
-# Day 5: Final Integration & Documentation
+# Day 5: Final Integration and Documentation
 
-## 🎯 Goal
-Complete the command-line calculator application and document your learning journey.
+## Objective
+
+Complete the command-line calculator application and document your learning throughout this week.
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
-Make sure you have completed Days 1-4. You should have:
+Ensure you have completed Days 1 through 4. Your repository should contain:
 - Environment files from Day 1
 - GitHub workflow files from Day 2
 - Calculator functions from Day 3
@@ -15,7 +16,7 @@ Make sure you have completed Days 1-4. You should have:
 
 ---
 
-## 📋 Tasks
+## Tasks
 
 ### Task 1: Create the CLI Calculator
 
@@ -23,17 +24,17 @@ Create a file `src/calculator/cli.py` that provides an interactive command-line 
 
 Requirements:
 - Import the operations from your operations module
-- Display a welcome message when started
+- Display a welcome message when the program starts
 - Show available operations to the user
 - Prompt the user for:
   1. First number
   2. Operation (add, subtract, multiply, divide)
   3. Second number
 - Display the result
-- Handle invalid input gracefully (non-numbers, invalid operations)
-- Allow the user to perform multiple calculations or quit
+- Handle invalid input gracefully (non-numeric input, invalid operations)
+- Allow the user to perform multiple calculations or quit the program
 
-The calculator should be runnable with:
+The calculator should be executable with:
 ```bash
 python3 src/calculator/cli.py
 ```
@@ -59,44 +60,44 @@ Goodbye!
 
 ### Task 2: Create System Info Script
 
-Create a file `src/system_info.py` that displays:
+Create a file `src/system_info.py` that displays the following information:
 - Operating system name
 - OS release/version
 - Python version
 - Current working directory
 - Current user
 
-Use the `platform` and `os` modules.
+Use the `platform` and `os` modules to retrieve this information.
 
 ---
 
 ### Task 3: Update Package Version
 
-Update `src/calculator/__init__.py`:
+Modify `src/calculator/__init__.py` to:
 - Change `__version__` to "1.0.0"
-- Add a docstring at the top describing the package
+- Add a docstring at the top of the file describing the package
 
 ---
 
 ### Task 4: Create LEARNING_LOG.md
 
-Create a file `LEARNING_LOG.md` in the root directory with the following sections:
+Create a file `LEARNING_LOG.md` in the root directory containing the following sections:
 
-1. **Environment Setup** - What tools did you install? Any challenges?
-2. **Git Skills Learned** - List 5+ Git commands you now understand
-3. **Linux Commands Learned** - List 5+ Linux commands you practiced
-4. **Python Skills** - What Python concepts did you use in this project?
+1. **Environment Setup** - What tools did you install? Were there any challenges?
+2. **Git Skills Learned** - List at least five Git commands you now understand
+3. **Linux Commands Learned** - List at least five Linux commands you practiced
+4. **Python Skills** - What Python concepts did you apply in this project?
 5. **Docker Knowledge** - Summarize what you learned about containers
-6. **Challenges Faced** - What was difficult? How did you solve it?
-7. **Next Steps** - What do you want to learn next?
+6. **Challenges Faced** - What difficulties did you encounter? How did you resolve them?
+7. **Next Steps** - What topics do you want to explore next?
 
-Be genuine - this is YOUR learning journal!
+Write honestly and reflectively. This document serves as your personal learning record.
 
 ---
 
 ### Task 5: Final Project Structure Verification
 
-Your final project structure should look similar to this:
+Your final project structure should resemble the following:
 
 ```
 202512WeekOne/
@@ -137,19 +138,19 @@ find . -type f -name "*.py" -o -name "*.md" -o -name "*.txt" | grep -v __pycache
 
 ### Task 6: Final Testing
 
-Run these commands and verify they all work:
+Execute the following commands and verify that each produces the expected output:
 
 1. `python3 src/hello.py`
 2. `python3 src/test_operations.py`
 3. `python3 src/system_info.py`
-4. `python3 src/calculator/cli.py` (test a few calculations)
+4. `python3 src/calculator/cli.py` (perform several test calculations)
 
 ---
 
 ### Task 7: Final Commit and Push
 
 1. Stage all changes
-2. Commit with message: "Day 5: Calculator complete - Week 1 finished!"
+2. Commit with the message: "Day 5: Calculator complete - Week 1 finished!"
 3. Push this branch:
    ```bash
    git push -u origin day5-final
@@ -157,39 +158,41 @@ Run these commands and verify they all work:
 
 ---
 
-## ✅ Final Verification Checklist
+## Final Verification Checklist
 
-- [ ] `src/calculator/cli.py` exists and runs interactively
-- [ ] CLI handles invalid input without crashing
-- [ ] `src/system_info.py` displays system information
-- [ ] `__version__` in `__init__.py` is "1.0.0"
-- [ ] `LEARNING_LOG.md` exists with all 7 sections
-- [ ] `project_structure.txt` exists
-- [ ] All Python scripts run without errors
-- [ ] All changes committed and pushed
-
----
-
-## 🎉 Congratulations!
-
-You have completed Week 1! You now have:
-
-- ✅ A working development environment
-- ✅ Git and GitHub proficiency
-- ✅ Linux command line skills
-- ✅ Python programming fundamentals
-- ✅ Docker basics understanding
-- ✅ A working CLI calculator application
-- ✅ Documentation of your learning journey
-
-**Your final deliverable is this repository with all 5 branches completed and pushed.**
+Before submitting, confirm the following:
+- `src/calculator/cli.py` exists and runs interactively
+- The CLI handles invalid input without crashing
+- `src/system_info.py` displays system information correctly
+- `__version__` in `__init__.py` is set to "1.0.0"
+- `LEARNING_LOG.md` exists and contains all seven sections
+- `project_structure.txt` exists
+- All Python scripts execute without errors
+- All changes have been committed and pushed
 
 ---
 
-## 🏆 Extra Credit Ideas
+## Summary
 
-1. **Dockerize the calculator** - Create a Dockerfile that runs your CLI
-2. **Add more operations** - Power, square root, modulo
+Upon completing this final day, you will have demonstrated competency in:
+
+- Configuring a development environment
+- Using Git and GitHub for version control
+- Working with the Linux command line
+- Writing Python functions and applications
+- Understanding Docker container fundamentals
+- Documenting your work and learning process
+
+Your final deliverable is this repository with all five branches completed and pushed to your GitHub account.
+
+---
+
+## Extra Credit
+
+The following extensions are optional but encouraged:
+
+1. **Dockerize the calculator** - Create a Dockerfile that runs your CLI application
+2. **Add more operations** - Implement power, square root, or modulo functions
 3. **Add calculation history** - Store and display previous calculations
-4. **Input validation** - More robust error handling
-5. **Unit tests** - Write pytest tests for your operations
+4. **Input validation** - Implement more robust error handling
+5. **Unit tests** - Write pytest tests for your calculator operations
