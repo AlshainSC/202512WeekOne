@@ -1,157 +1,195 @@
-# Day 4: Docker Fundamentals
+# Day 5: Final Integration & Documentation
 
 ## 🎯 Goal
-Demonstrate understanding of Docker basics: running containers, inspecting them, and managing container lifecycle.
+Complete the command-line calculator application and document your learning journey.
 
 ---
 
 ## 📋 Prerequisites
 
-Make sure you have completed Days 1-3. You should have:
-- All files from previous days
-- Working calculator functions in `src/calculator/operations.py`
-- `src/hello.py` and `src/test_operations.py`
+Make sure you have completed Days 1-4. You should have:
+- Environment files from Day 1
+- GitHub workflow files from Day 2
+- Calculator functions from Day 3
+- Docker documentation from Day 4
 
 ---
 
 ## 📋 Tasks
 
-### Task 1: Verify Docker Installation
+### Task 1: Create the CLI Calculator
 
-1. Check that Docker is installed and running:
-   ```bash
-   docker --version
-   ```
-2. Create a file called `docker_version.txt` containing the output
+Create a file `src/calculator/cli.py` that provides an interactive command-line calculator.
 
----
+Requirements:
+- Import the operations from your operations module
+- Display a welcome message when started
+- Show available operations to the user
+- Prompt the user for:
+  1. First number
+  2. Operation (add, subtract, multiply, divide)
+  3. Second number
+- Display the result
+- Handle invalid input gracefully (non-numbers, invalid operations)
+- Allow the user to perform multiple calculations or quit
 
-### Task 2: Run Hello World Container
+The calculator should be runnable with:
+```bash
+python3 src/calculator/cli.py
+```
 
-1. Run the Docker hello-world container:
-   ```bash
-   docker run hello-world
-   ```
-2. Create a file called `docker/hello_world_output.txt` containing the output from this command
+Example interaction:
+```
+=================================
+  Welcome to Python Calculator!
+=================================
+Available operations: add, subtract, multiply, divide
+Type 'quit' to exit.
 
-**Note:** Create the `docker/` directory first.
+Enter first number: 10
+Enter operation: add
+Enter second number: 5
+Result: 10 + 5 = 15
 
----
-
-### Task 3: Explore Python Container
-
-1. Run an interactive Python container:
-   ```bash
-   docker run -it python:3.11-slim python
-   ```
-2. Inside the container, run a simple calculation using your knowledge from Day 3
-3. Exit the container
-4. Create a file `docker/python_container_notes.txt` documenting:
-   - The command you used to start the container
-   - What you ran inside the container
-   - How you exited
-
----
-
-### Task 4: Run and Inspect Nginx
-
-1. Run an nginx container in detached mode on port 8080:
-   ```bash
-   docker run -d -p 8080:80 --name my-nginx nginx
-   ```
-2. Verify it's running with `docker ps`
-3. View the logs with `docker logs my-nginx`
-4. Create a file `docker/nginx_exploration.txt` containing:
-   - Output of `docker ps` (showing your nginx container)
-   - First 10 lines of the nginx logs
+Enter first number: quit
+Goodbye!
+```
 
 ---
 
-### Task 5: Container Lifecycle
+### Task 2: Create System Info Script
 
-Practice the container lifecycle commands and document your experience:
+Create a file `src/system_info.py` that displays:
+- Operating system name
+- OS release/version
+- Python version
+- Current working directory
+- Current user
 
-1. Stop the nginx container
-2. Start it again
-3. Stop and remove it
-4. Remove the nginx image
-
-Create a file `docker/lifecycle_commands.txt` that lists each command you used and what it did.
-
----
-
-### Task 6: Docker Concepts Documentation
-
-Create a file `docker/DOCKER_NOTES.md` that explains in your own words:
-
-1. **What is a container?** (2-3 sentences)
-2. **What is an image?** (2-3 sentences)
-3. **Difference between `docker run` and `docker start`**
-4. **What does the `-d` flag do?**
-5. **What does `-p 8080:80` mean?**
+Use the `platform` and `os` modules.
 
 ---
 
-### Task 7: Commit Your Work
+### Task 3: Update Package Version
+
+Update `src/calculator/__init__.py`:
+- Change `__version__` to "1.0.0"
+- Add a docstring at the top describing the package
+
+---
+
+### Task 4: Create LEARNING_LOG.md
+
+Create a file `LEARNING_LOG.md` in the root directory with the following sections:
+
+1. **Environment Setup** - What tools did you install? Any challenges?
+2. **Git Skills Learned** - List 5+ Git commands you now understand
+3. **Linux Commands Learned** - List 5+ Linux commands you practiced
+4. **Python Skills** - What Python concepts did you use in this project?
+5. **Docker Knowledge** - Summarize what you learned about containers
+6. **Challenges Faced** - What was difficult? How did you solve it?
+7. **Next Steps** - What do you want to learn next?
+
+Be genuine - this is YOUR learning journal!
+
+---
+
+### Task 5: Final Project Structure Verification
+
+Your final project structure should look similar to this:
+
+```
+202512WeekOne/
+├── README.md
+├── TASKS.md
+├── LEARNING_LOG.md
+├── .gitignore
+├── environment.txt
+├── notes.txt
+├── notes_backup.txt
+├── github_verified.txt
+├── git_log_output.txt
+├── python_version.txt
+├── docker_version.txt
+├── docker/
+│   ├── hello_world_output.txt
+│   ├── python_container_notes.txt
+│   ├── nginx_exploration.txt
+│   ├── lifecycle_commands.txt
+│   └── DOCKER_NOTES.md
+└── src/
+    ├── hello.py
+    ├── test_operations.py
+    ├── system_info.py
+    └── calculator/
+        ├── __init__.py
+        ├── operations.py
+        ├── cli.py
+        └── README.md
+```
+
+Create a file called `project_structure.txt` containing the output of:
+```bash
+find . -type f -name "*.py" -o -name "*.md" -o -name "*.txt" | grep -v __pycache__ | sort
+```
+
+---
+
+### Task 6: Final Testing
+
+Run these commands and verify they all work:
+
+1. `python3 src/hello.py`
+2. `python3 src/test_operations.py`
+3. `python3 src/system_info.py`
+4. `python3 src/calculator/cli.py` (test a few calculations)
+
+---
+
+### Task 7: Final Commit and Push
 
 1. Stage all changes
-2. Commit with message: "Day 4: Docker fundamentals complete"
-
----
-
-## ✅ Verification Checklist
-
-Before moving on:
-- [ ] `docker_version.txt` exists
-- [ ] `docker/hello_world_output.txt` exists
-- [ ] `docker/python_container_notes.txt` exists
-- [ ] `docker/nginx_exploration.txt` exists
-- [ ] `docker/lifecycle_commands.txt` exists
-- [ ] `docker/DOCKER_NOTES.md` exists with all 5 explanations
-- [ ] All changes committed
-
----
-
-## ✅ Completion
-
-When all tasks are complete:
-1. Push this branch:
+2. Commit with message: "Day 5: Calculator complete - Week 1 finished!"
+3. Push this branch:
    ```bash
-   git push -u origin day4-docker
-   ```
-2. Move to the next branch:
-   ```bash
-   git checkout day5-final
+   git push -u origin day5-final
    ```
 
 ---
 
-## 💡 Docker Commands Reference
+## ✅ Final Verification Checklist
 
-| Command | Purpose |
-|---------|---------|
-| `docker run image` | Create and start a container |
-| `docker run -d` | Run in detached (background) mode |
-| `docker run -it` | Run interactively with terminal |
-| `docker run -p host:container` | Map ports |
-| `docker run --name name` | Give container a name |
-| `docker ps` | List running containers |
-| `docker ps -a` | List all containers |
-| `docker logs name` | View container logs |
-| `docker stop name` | Stop a container |
-| `docker start name` | Start a stopped container |
-| `docker rm name` | Remove a container |
-| `docker rmi image` | Remove an image |
-| `docker images` | List images |
+- [ ] `src/calculator/cli.py` exists and runs interactively
+- [ ] CLI handles invalid input without crashing
+- [ ] `src/system_info.py` displays system information
+- [ ] `__version__` in `__init__.py` is "1.0.0"
+- [ ] `LEARNING_LOG.md` exists with all 7 sections
+- [ ] `project_structure.txt` exists
+- [ ] All Python scripts run without errors
+- [ ] All changes committed and pushed
 
 ---
 
-## 🏆 Extra Credit
+## 🎉 Congratulations!
 
-Create a `Dockerfile` in the root of the project that:
-- Uses `python:3.11-slim` as base image
-- Copies the `src/` directory into the container
-- Sets the working directory
-- Runs `python test_operations.py` as the default command
+You have completed Week 1! You now have:
 
-This is optional but great practice!
+- ✅ A working development environment
+- ✅ Git and GitHub proficiency
+- ✅ Linux command line skills
+- ✅ Python programming fundamentals
+- ✅ Docker basics understanding
+- ✅ A working CLI calculator application
+- ✅ Documentation of your learning journey
+
+**Your final deliverable is this repository with all 5 branches completed and pushed.**
+
+---
+
+## 🏆 Extra Credit Ideas
+
+1. **Dockerize the calculator** - Create a Dockerfile that runs your CLI
+2. **Add more operations** - Power, square root, modulo
+3. **Add calculation history** - Store and display previous calculations
+4. **Input validation** - More robust error handling
+5. **Unit tests** - Write pytest tests for your operations
