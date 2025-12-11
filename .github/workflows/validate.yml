@@ -1,0 +1,101 @@
+name: Validate Student Work
+
+on:
+  push:
+    branches:
+      - day1-environment
+      - day2-github
+      - day3-python
+      - day4-docker
+      - day5-final
+
+jobs:
+  validate-day1:
+    if: github.ref == 'refs/heads/day1-environment'
+    runs-on: ubuntu-latest
+    name: Day 1 - Environment Setup
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run Day 1 Tests
+        run: pytest tests/test_day1.py -v
+
+  validate-day2:
+    if: github.ref == 'refs/heads/day2-github'
+    runs-on: ubuntu-latest
+    name: Day 2 - GitHub Integration
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run Day 2 Tests
+        run: pytest tests/test_day2.py -v
+
+  validate-day3:
+    if: github.ref == 'refs/heads/day3-python'
+    runs-on: ubuntu-latest
+    name: Day 3 - Python Setup
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run Day 3 Tests
+        run: pytest tests/test_day3.py -v
+
+  validate-day4:
+    if: github.ref == 'refs/heads/day4-docker'
+    runs-on: ubuntu-latest
+    name: Day 4 - Docker Fundamentals
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run Day 4 Tests
+        run: pytest tests/test_day4.py -v
+
+  validate-day5:
+    if: github.ref == 'refs/heads/day5-final'
+    runs-on: ubuntu-latest
+    name: Day 5 - Final Integration
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run Day 5 Tests
+        run: pytest tests/test_day5.py -v
