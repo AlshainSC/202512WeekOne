@@ -1,6 +1,6 @@
 # 202512WeekOne - Developer Environment Assessment
 
-This repository serves as a practical assessment of your understanding of essential developer tools and workflows. Over the course of five days, you will build a simple command-line calculator while demonstrating competency in the following areas:
+This repository serves as a practical assessment of your understanding of essential developer tools and workflows. You will build a simple command-line calculator while demonstrating competency in the following areas:
 
 - Git and GitHub workflows
 - Linux command line operations
@@ -9,7 +9,7 @@ This repository serves as a practical assessment of your understanding of essent
 
 ## Structure
 
-This assessment is organized across five branches, each building upon the previous one:
+This assessment is organized across five sections, each building upon the previous one:
 
 | Branch | Focus Area | Description |
 |--------|-----------|-------------|
@@ -34,25 +34,25 @@ git remote remove origin
 git remote add origin git@github.com:YOUR_USERNAME/202512WeekOne.git
 ```
 
-### Step 3: Begin Day 1
+### Step 3: Begin Section 1
 ```bash
 git checkout day1-environment
 ```
 
-Each branch contains a `TASKS.md` file with detailed instructions for that day's work.
+Each branch contains a `TASKS.md` file with detailed instructions for that section's work.
 
 ## Completion Criteria
 
 Each branch includes automated tests that verify your work. When you push your changes, these tests run automatically via GitHub Actions. You can view the results in the Actions tab of your repository.
 
 Your final submission must include:
-- All five branches completed and pushed to your repository
+- All five sections completed and pushed to your repository
 - A working command-line calculator application
 - A `LEARNING_LOG.md` file documenting your learning process
 
-## Branch Progression
+## Section Progression
 
-Complete the branches in order. Each branch builds on the work from the previous day:
+Complete the sections in order. Each section builds on the work from the previous one:
 
 ```
 main
@@ -63,7 +63,7 @@ main
                           └── day5-final
 ```
 
-After completing each day's tasks:
+After completing each section's tasks:
 1. Commit your changes with a descriptive message
 2. Push the branch to your repository
 3. Proceed to the next branch
