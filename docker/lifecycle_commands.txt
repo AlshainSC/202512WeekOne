@@ -1,0 +1,13 @@
+Container Lifecycle Commands:
+
+1. docker stop my-nginx
+   - Stops the running nginx container gracefully
+
+2. docker start my-nginx
+   - Starts the stopped container again
+
+3. docker stop my-nginx && docker rm my-nginx
+   - Stops and removes the container
+
+4. docker rmi nginx
+   - Removes the nginx image from local storage

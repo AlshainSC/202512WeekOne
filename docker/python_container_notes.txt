@@ -1,0 +1,12 @@
+Command used to start the container:
+docker run -it python:3.11-slim python
+
+What I ran inside the container:
+>>> 5 + 3
+8
+>>> 10 / 2
+5.0
+>>> exit()
+
+How I exited:
+Used exit() or Ctrl+D to exit the Python interpreter, which also exits the container.
