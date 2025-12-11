@@ -1,118 +1,113 @@
-# Day 3: Python Setup & Calculator Functions
+# Day 4: Docker Fundamentals
 
 ## 🎯 Goal
-Set up Python development environment and implement the core calculator functions.
+Demonstrate understanding of Docker basics: running containers, inspecting them, and managing container lifecycle.
 
 ---
 
 ## 📋 Prerequisites
 
-Make sure you have completed Days 1-2. You should have:
-- `environment.txt`, `notes.txt`, `notes_backup.txt`
-- `src/calculator/__init__.py`
-- `src/calculator/operations.py` with `SUPPORTED_OPERATIONS`
-- `src/calculator/README.md`
-- `github_verified.txt` and `git_log_output.txt`
+Make sure you have completed Days 1-3. You should have:
+- All files from previous days
+- Working calculator functions in `src/calculator/operations.py`
+- `src/hello.py` and `src/test_operations.py`
 
 ---
 
 ## 📋 Tasks
 
-### Task 1: Verify Python Installation
+### Task 1: Verify Docker Installation
 
-1. Check that Python 3 is installed:
+1. Check that Docker is installed and running:
    ```bash
-   python3 --version
+   docker --version
    ```
-2. Create a file called `python_version.txt` containing the output of the above command
+2. Create a file called `docker_version.txt` containing the output
 
 ---
 
-### Task 2: Create a Hello Script
+### Task 2: Run Hello World Container
 
-Create a file `src/hello.py` that:
-1. Prints "Hello, Calculator!" to the console
-2. Prints the current Python version using the `platform` module
+1. Run the Docker hello-world container:
+   ```bash
+   docker run hello-world
+   ```
+2. Create a file called `docker/hello_world_output.txt` containing the output from this command
 
-Run it to verify it works:
-```bash
-python3 src/hello.py
-```
-
----
-
-### Task 3: Implement Calculator Functions
-
-Update `src/calculator/operations.py` to include four functions:
-
-1. **add(a, b)** - Returns the sum of a and b
-2. **subtract(a, b)** - Returns a minus b
-3. **multiply(a, b)** - Returns the product of a and b
-4. **divide(a, b)** - Returns a divided by b
-
-Requirements:
-- Each function should take two numeric parameters
-- Each function should return the result (not print it)
-- The `divide` function should handle division by zero by returning `None`
-
-**Hint:** Keep the `SUPPORTED_OPERATIONS` list you created in Day 2.
+**Note:** Create the `docker/` directory first.
 
 ---
 
-### Task 4: Create a Test Script
+### Task 3: Explore Python Container
 
-Create a file `src/test_operations.py` that:
-1. Imports all four functions from `calculator.operations`
-2. Tests each function with sample values
-3. Prints the results in a readable format
-
-Example output format:
-```
-Testing Calculator Operations
------------------------------
-add(5, 3) = 8
-subtract(10, 4) = 6
-multiply(7, 2) = 14
-divide(20, 5) = 4.0
-divide(10, 0) = None
-```
-
-Run your test script:
-```bash
-python3 src/test_operations.py
-```
+1. Run an interactive Python container:
+   ```bash
+   docker run -it python:3.11-slim python
+   ```
+2. Inside the container, run a simple calculation using your knowledge from Day 3
+3. Exit the container
+4. Create a file `docker/python_container_notes.txt` documenting:
+   - The command you used to start the container
+   - What you ran inside the container
+   - How you exited
 
 ---
 
-### Task 5: Update the Package Init
+### Task 4: Run and Inspect Nginx
 
-Update `src/calculator/__init__.py` to:
-1. Import all four operations from the operations module
-2. Define a `__version__` variable set to "0.1.0"
-
-This allows users to do:
-```python
-from calculator import add, subtract, multiply, divide
-```
+1. Run an nginx container in detached mode on port 8080:
+   ```bash
+   docker run -d -p 8080:80 --name my-nginx nginx
+   ```
+2. Verify it's running with `docker ps`
+3. View the logs with `docker logs my-nginx`
+4. Create a file `docker/nginx_exploration.txt` containing:
+   - Output of `docker ps` (showing your nginx container)
+   - First 10 lines of the nginx logs
 
 ---
 
-### Task 6: Commit Your Work
+### Task 5: Container Lifecycle
+
+Practice the container lifecycle commands and document your experience:
+
+1. Stop the nginx container
+2. Start it again
+3. Stop and remove it
+4. Remove the nginx image
+
+Create a file `docker/lifecycle_commands.txt` that lists each command you used and what it did.
+
+---
+
+### Task 6: Docker Concepts Documentation
+
+Create a file `docker/DOCKER_NOTES.md` that explains in your own words:
+
+1. **What is a container?** (2-3 sentences)
+2. **What is an image?** (2-3 sentences)
+3. **Difference between `docker run` and `docker start`**
+4. **What does the `-d` flag do?**
+5. **What does `-p 8080:80` mean?**
+
+---
+
+### Task 7: Commit Your Work
 
 1. Stage all changes
-2. Commit with message: "Day 3: Implement calculator operations"
+2. Commit with message: "Day 4: Docker fundamentals complete"
 
 ---
 
 ## ✅ Verification Checklist
 
 Before moving on:
-- [ ] `python_version.txt` exists
-- [ ] `src/hello.py` runs and prints expected output
-- [ ] `src/calculator/operations.py` has all four functions
-- [ ] `divide(x, 0)` returns `None` (not an error)
-- [ ] `src/test_operations.py` runs successfully
-- [ ] `src/calculator/__init__.py` exports the functions
+- [ ] `docker_version.txt` exists
+- [ ] `docker/hello_world_output.txt` exists
+- [ ] `docker/python_container_notes.txt` exists
+- [ ] `docker/nginx_exploration.txt` exists
+- [ ] `docker/lifecycle_commands.txt` exists
+- [ ] `docker/DOCKER_NOTES.md` exists with all 5 explanations
 - [ ] All changes committed
 
 ---
@@ -122,22 +117,41 @@ Before moving on:
 When all tasks are complete:
 1. Push this branch:
    ```bash
-   git push -u origin day3-python
+   git push -u origin day4-docker
    ```
 2. Move to the next branch:
    ```bash
-   git checkout day4-docker
+   git checkout day5-final
    ```
 
 ---
 
-## 💡 Python Concepts You'll Use
+## 💡 Docker Commands Reference
 
-| Concept | Example |
+| Command | Purpose |
 |---------|---------|
-| Function definition | `def add(a, b):` |
-| Return statement | `return a + b` |
-| Conditional | `if b == 0:` |
-| Import from module | `from calculator.operations import add` |
-| Module variable | `__version__ = "0.1.0"` |
-| Platform module | `import platform` |
+| `docker run image` | Create and start a container |
+| `docker run -d` | Run in detached (background) mode |
+| `docker run -it` | Run interactively with terminal |
+| `docker run -p host:container` | Map ports |
+| `docker run --name name` | Give container a name |
+| `docker ps` | List running containers |
+| `docker ps -a` | List all containers |
+| `docker logs name` | View container logs |
+| `docker stop name` | Stop a container |
+| `docker start name` | Start a stopped container |
+| `docker rm name` | Remove a container |
+| `docker rmi image` | Remove an image |
+| `docker images` | List images |
+
+---
+
+## 🏆 Extra Credit
+
+Create a `Dockerfile` in the root of the project that:
+- Uses `python:3.11-slim` as base image
+- Copies the `src/` directory into the container
+- Sets the working directory
+- Runs `python test_operations.py` as the default command
+
+This is optional but great practice!
