@@ -1,78 +1,105 @@
-# Day 1: Environment Setup
+# Day 2: GitHub Integration & Branching
 
 ## 🎯 Goal
-Validate your development environment and demonstrate basic Git and Linux proficiency.
+Practice GitHub workflows, branching strategies, and documentation.
+
+---
+
+## 📋 Prerequisites
+
+Make sure you have completed Day 1 tasks. You should have:
+- `environment.txt` with your system info
+- `src/calculator/__init__.py` directory structure
+- `notes.txt` and `notes_backup.txt`
 
 ---
 
 ## 📋 Tasks
 
-### Task 1: Create Environment Info File
+### Task 1: Verify GitHub Connection
 
-Create a file called `environment.txt` in the root of this repository that contains:
-- Your operating system name
-- Your Git version (output of `git --version`)
-- Your current username
-
-**Hint:** You can use Linux commands to gather this information and redirect output to a file.
-
----
-
-### Task 2: Create Project Structure
-
-Using **only the command line**, create the following folder structure:
-
-```
-src/
-  calculator/
-    __init__.py
+Confirm your SSH connection to GitHub works:
+```bash
+ssh -T git@github.com
 ```
 
-The `__init__.py` file should be empty for now.
-
-**Hint:** Use `mkdir` with appropriate flags and `touch` to create empty files.
+Create a file called `github_verified.txt` containing the text "GitHub SSH connection verified" followed by today's date.
 
 ---
 
-### Task 3: Practice File Operations
+### Task 2: Create a Feature Branch
 
-1. Create a file called `notes.txt` with the text "Day 1 started"
-2. Copy `notes.txt` to `notes_backup.txt`
-3. Append the text "Environment validated" to `notes.txt` (original file should now have 2 lines)
+You will practice the feature branch workflow:
 
-**Hint:** Use `echo`, `cp`, and the append operator `>>`.
+1. Create a new branch called `feature-add-operations` from the current branch
+2. Switch to that branch
+3. Create a file `src/calculator/operations.py` with the following content structure:
+   - A comment at the top describing what this file will contain
+   - Define a variable `SUPPORTED_OPERATIONS` that is a list containing: "add", "subtract", "multiply", "divide"
 
----
-
-### Task 4: Git Fundamentals
-
-1. Check the status of your repository
-2. Add all new files to staging
-3. Create a commit with the message: "Day 1: Environment setup complete"
+**Hint:** Use `git checkout -b` to create and switch to a new branch.
 
 ---
 
-### Task 5: Verify Your Work
+### Task 3: Commit on Feature Branch
 
-Before moving on, make sure:
-- [ ] `environment.txt` exists and contains system info
-- [ ] `src/calculator/__init__.py` exists
-- [ ] `notes.txt` exists with 2 lines
-- [ ] `notes_backup.txt` exists with 1 line
-- [ ] All changes are committed
+1. Stage your new file
+2. Commit with message: "Add operations module with supported operations list"
+3. Switch back to `day2-github` branch
+4. Merge your feature branch into `day2-github`
+
+**Hint:** Use `git merge <branch-name>` to merge.
+
+---
+
+### Task 4: Update Project README
+
+Create a file called `src/calculator/README.md` that documents your calculator project:
+
+Include these sections:
+- **Project Name**: Give your calculator a name
+- **Description**: What will this calculator do? (1-2 sentences)
+- **Planned Features**: List the four operations it will support
+- **Author**: Your name
+
+---
+
+### Task 5: View Git History
+
+1. Use `git log` to view your commit history
+2. Create a file called `git_log_output.txt` containing the output of `git log --oneline` (just the short version)
+
+---
+
+### Task 6: Final Commit
+
+1. Stage all changes
+2. Commit with message: "Day 2: GitHub workflow complete"
+
+---
+
+## ✅ Verification Checklist
+
+Before moving on:
+- [ ] `github_verified.txt` exists
+- [ ] `src/calculator/operations.py` exists with `SUPPORTED_OPERATIONS` list
+- [ ] `src/calculator/README.md` exists with required sections
+- [ ] `git_log_output.txt` exists
+- [ ] Feature branch was created, committed to, and merged
+- [ ] All changes committed to `day2-github`
 
 ---
 
 ## ✅ Completion
 
 When all tasks are complete:
-1. Push this branch to your repository:
+1. Push this branch:
    ```bash
-   git push -u origin day1-environment
+   git push -u origin day2-github
    ```
 2. Move to the next branch:
    ```bash
-   git checkout day2-github
+   git checkout day3-python
    ```
 
 ---
@@ -81,14 +108,11 @@ When all tasks are complete:
 
 | Command | Purpose |
 |---------|---------|
-| `uname -s` | Get OS name |
-| `git --version` | Get Git version |
-| `whoami` | Get current username |
-| `mkdir -p` | Create nested directories |
-| `touch` | Create empty file |
-| `echo "text" > file` | Write text to file |
-| `echo "text" >> file` | Append text to file |
-| `cp source dest` | Copy file |
-| `git status` | Check repo status |
-| `git add .` | Stage all changes |
-| `git commit -m "msg"` | Commit with message |
+| `git checkout -b name` | Create and switch to new branch |
+| `git checkout name` | Switch to existing branch |
+| `git merge branch` | Merge branch into current branch |
+| `git log` | View commit history |
+| `git log --oneline` | View compact commit history |
+| `git branch` | List all branches |
+| `git branch -d name` | Delete a branch |
+| `date` | Get current date |
