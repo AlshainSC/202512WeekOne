@@ -1,24 +1,25 @@
 # Day 4: Docker Fundamentals
 
-## 🎯 Goal
-Demonstrate understanding of Docker basics: running containers, inspecting them, and managing container lifecycle.
+## Objective
+
+Demonstrate your understanding of Docker basics: running containers, inspecting them, and managing the container lifecycle.
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
-Make sure you have completed Days 1-3. You should have:
+Ensure you have completed Days 1 through 3. Your repository should contain:
 - All files from previous days
 - Working calculator functions in `src/calculator/operations.py`
 - `src/hello.py` and `src/test_operations.py`
 
 ---
 
-## 📋 Tasks
+## Tasks
 
 ### Task 1: Verify Docker Installation
 
-1. Check that Docker is installed and running:
+1. Confirm that Docker is installed and running:
    ```bash
    docker --version
    ```
@@ -34,7 +35,7 @@ Make sure you have completed Days 1-3. You should have:
    ```
 2. Create a file called `docker/hello_world_output.txt` containing the output from this command
 
-**Note:** Create the `docker/` directory first.
+Note: You will need to create the `docker/` directory first.
 
 ---
 
@@ -44,12 +45,12 @@ Make sure you have completed Days 1-3. You should have:
    ```bash
    docker run -it python:3.11-slim python
    ```
-2. Inside the container, run a simple calculation using your knowledge from Day 3
+2. Inside the container, execute a simple calculation using your knowledge from Day 3
 3. Exit the container
 4. Create a file `docker/python_container_notes.txt` documenting:
    - The command you used to start the container
-   - What you ran inside the container
-   - How you exited
+   - What you executed inside the container
+   - How you exited the container
 
 ---
 
@@ -59,11 +60,11 @@ Make sure you have completed Days 1-3. You should have:
    ```bash
    docker run -d -p 8080:80 --name my-nginx nginx
    ```
-2. Verify it's running with `docker ps`
+2. Verify it is running with `docker ps`
 3. View the logs with `docker logs my-nginx`
 4. Create a file `docker/nginx_exploration.txt` containing:
-   - Output of `docker ps` (showing your nginx container)
-   - First 10 lines of the nginx logs
+   - The output of `docker ps` showing your nginx container
+   - The first 10 lines of the nginx logs
 
 ---
 
@@ -76,17 +77,17 @@ Practice the container lifecycle commands and document your experience:
 3. Stop and remove it
 4. Remove the nginx image
 
-Create a file `docker/lifecycle_commands.txt` that lists each command you used and what it did.
+Create a file `docker/lifecycle_commands.txt` listing each command you used and describing what it accomplished.
 
 ---
 
 ### Task 6: Docker Concepts Documentation
 
-Create a file `docker/DOCKER_NOTES.md` that explains in your own words:
+Create a file `docker/DOCKER_NOTES.md` explaining the following concepts in your own words:
 
 1. **What is a container?** (2-3 sentences)
 2. **What is an image?** (2-3 sentences)
-3. **Difference between `docker run` and `docker start`**
+3. **What is the difference between `docker run` and `docker start`?**
 4. **What does the `-d` flag do?**
 5. **What does `-p 8080:80` mean?**
 
@@ -95,63 +96,67 @@ Create a file `docker/DOCKER_NOTES.md` that explains in your own words:
 ### Task 7: Commit Your Work
 
 1. Stage all changes
-2. Commit with message: "Day 4: Docker fundamentals complete"
+2. Commit with the message: "Day 4: Docker fundamentals complete"
 
 ---
 
-## ✅ Verification Checklist
+## Verification Checklist
 
-Before moving on:
-- [ ] `docker_version.txt` exists
-- [ ] `docker/hello_world_output.txt` exists
-- [ ] `docker/python_container_notes.txt` exists
-- [ ] `docker/nginx_exploration.txt` exists
-- [ ] `docker/lifecycle_commands.txt` exists
-- [ ] `docker/DOCKER_NOTES.md` exists with all 5 explanations
-- [ ] All changes committed
+Before proceeding to Day 5, confirm the following:
+- `docker_version.txt` exists
+- `docker/hello_world_output.txt` exists
+- `docker/python_container_notes.txt` exists
+- `docker/nginx_exploration.txt` exists
+- `docker/lifecycle_commands.txt` exists
+- `docker/DOCKER_NOTES.md` exists with all five explanations
+- All changes have been committed
 
 ---
 
-## ✅ Completion
+## Completion
 
-When all tasks are complete:
+Once you have finished all tasks:
+
 1. Push this branch:
    ```bash
    git push -u origin day4-docker
    ```
-2. Move to the next branch:
+
+2. Proceed to the next branch:
    ```bash
    git checkout day5-final
    ```
 
 ---
 
-## 💡 Docker Commands Reference
+## Reference
+
+The following Docker commands may be useful for completing these tasks:
 
 | Command | Purpose |
 |---------|---------|
 | `docker run image` | Create and start a container |
 | `docker run -d` | Run in detached (background) mode |
-| `docker run -it` | Run interactively with terminal |
-| `docker run -p host:container` | Map ports |
-| `docker run --name name` | Give container a name |
+| `docker run -it` | Run interactively with terminal access |
+| `docker run -p host:container` | Map host port to container port |
+| `docker run --name name` | Assign a name to the container |
 | `docker ps` | List running containers |
 | `docker ps -a` | List all containers |
 | `docker logs name` | View container logs |
-| `docker stop name` | Stop a container |
+| `docker stop name` | Stop a running container |
 | `docker start name` | Start a stopped container |
 | `docker rm name` | Remove a container |
 | `docker rmi image` | Remove an image |
-| `docker images` | List images |
+| `docker images` | List downloaded images |
 
 ---
 
-## 🏆 Extra Credit
+## Extra Credit
 
 Create a `Dockerfile` in the root of the project that:
-- Uses `python:3.11-slim` as base image
+- Uses `python:3.11-slim` as the base image
 - Copies the `src/` directory into the container
-- Sets the working directory
+- Sets the working directory appropriately
 - Runs `python test_operations.py` as the default command
 
-This is optional but great practice!
+This task is optional but provides valuable practice with Docker image creation.
